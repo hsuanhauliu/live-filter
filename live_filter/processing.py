@@ -16,8 +16,11 @@ def process_frame():
         frame = resources.vid_stream.read()
         frame = imutils.resize(frame, width=800)
 
+        #TODO iterate through all filters and apply them
+        """
         for fil in resources.filters:
             frame = fil.apply(frame)
+        """
 
         # acquire the lock, set the output frame, and release the lock
         with resources.lock:

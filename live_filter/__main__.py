@@ -5,7 +5,7 @@
 import threading
 
 from shared_resources import SharedResources
-from flask import Flask, Response, render_template
+from flask import Flask, Response, render_template, request
 
 from args import parse_input
 from processing import process_frame, encode
@@ -30,6 +30,13 @@ def main():
         # type (mime type)
         return Response(encode(),
                         mimetype="multipart/x-mixed-replace; boundary=frame")
+
+    @app.route('/filter_control', methods=['POST'])
+    def filter_control():
+        print("Filter button pressed.")
+        shared.add_filter(request.form["filter_button"])
+        return render_template("index.html")
+
 
     # start a thread that will perform filtering
     processing_th = threading.Thread(target=process_frame, daemon=True)

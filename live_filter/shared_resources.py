@@ -6,6 +6,8 @@ from threading import Lock
 
 from imutils.video import VideoStream
 
+from filter_manager import FilterManager
+
 
 class SharedResources:
     """ Class for maintaining shared variables """
@@ -20,7 +22,9 @@ class SharedResources:
         self.output_frame = None
         self.lock = Lock()
         self.vid_stream = VideoStream(src=vid_src)
-        self.filters = []   # filters
+
+        # filter variables
+        self.filter_m = FilterManager()
 
 
     @staticmethod
@@ -34,3 +38,13 @@ class SharedResources:
     def start_stream(self):
         """ Start video stream """
         self.vid_stream.start()
+
+
+    def add_filter(self, input_filter):
+        """ Add selected filter to the filter manager """
+        self.filter_m.add_filter(input_filter)
+
+
+    def remove_filter(self, input_filter):
+        """ Remove selected filter from the filter manager """
+        self.filter_m.remove_filter(input_filter)
