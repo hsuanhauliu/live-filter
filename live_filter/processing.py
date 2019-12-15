@@ -4,36 +4,41 @@
 
 import cv2 as cv
 import imutils
+from shared_resources import SharedResources
 
 
-def process_frame(control):
+def process_frame():
     """ Process frame """
+    resources = SharedResources.get_instance()
+
     # loop over frames from the video stream
     while True:
-        frame = control.vs.read()
+        frame = resources.vid_stream.read()
         frame = imutils.resize(frame, width=800)
 
-        for fil in control.filters:
+        for fil in resources.filters:
             frame = fil.apply(frame)
 
         # acquire the lock, set the output frame, and release the lock
-        with control.lock:
-            control.output_frame = frame.copy()
+        with resources.lock:
+            resources.output_frame = frame.copy()
 
 
-def generate(control):
-    """ Generate frame to render """
+def encode():
+    """ Encode frame to render """
+    resources = SharedResources.get_instance()
+
     # loop over frames from the output stream
     while True:
         # wait until the lock is acquired
-        with control.lock:
+        with resources.lock:
             # check if the output frame is available, otherwise skip
             # the iteration of the loop
-            if control.output_frame is None:
+            if resources.output_frame is None:
                 continue
 
             # encode the frame in JPEG format
-            flag, encoded_img = cv.imencode(".jpg", control.output_frame)
+            flag, encoded_img = cv.imencode(".jpg", resources.output_frame)
 
             if not flag:
                 continue
