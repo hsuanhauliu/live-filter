@@ -1,3 +1,7 @@
+"""
+    Frame processing module.
+"""
+
 import cv2 as cv
 import imutils
 
@@ -6,18 +10,17 @@ def process_frame(control):
     """ Process frame """
     # loop over frames from the video stream
     while True:
-        # read the next frame from the video stream, resize it,
-        # convert the frame to grayscale, and blur it
         frame = control.vs.read()
         frame = imutils.resize(frame, width=800)
 
-        #TODO do processing here
+        for fil in control.filters:
+            frame = fil.apply(frame)
 
         # acquire the lock, set the output frame, and release the lock
         with control.lock:
             control.output_frame = frame.copy()
-            
-            
+
+
 def generate(control):
     """ Generate frame to render """
     # loop over frames from the output stream

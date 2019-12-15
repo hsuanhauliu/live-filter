@@ -5,3 +5,6 @@ class Control:
         self.output_frame = None
         self.lock = None
         self.vs = None
+
+        # filters
+        self.filters = []
