@@ -40,11 +40,11 @@ class SharedResources:
         self.vid_stream.start()
 
 
-    def add_filter(self, input_filter):
-        """ Add selected filter to the filter manager """
-        self.filter_m.add_filter(input_filter)
+    def get_filters(self):
+        """ Retrieve filters from filter manager """
+        return self.filter_m.filters
 
 
-    def remove_filter(self, input_filter):
-        """ Remove selected filter from the filter manager """
-        self.filter_m.remove_filter(input_filter)
+    def toggle_filter(self, input_filter):
+        """ Toggle the selected filter in Filter Manager """
+        self.filter_m.toggle_filter(input_filter)

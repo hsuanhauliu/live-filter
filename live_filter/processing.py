@@ -4,6 +4,7 @@
 
 import cv2 as cv
 import imutils
+
 from shared_resources import SharedResources
 
 
@@ -15,16 +16,18 @@ def process_frame():
     while True:
         frame = resources.vid_stream.read()
         frame = imutils.resize(frame, width=800)
-
-        #TODO iterate through all filters and apply them
-        """
-        for fil in resources.filters:
-            frame = fil.apply(frame)
-        """
+        processed_frame = _apply_filter(frame)
 
         # acquire the lock, set the output frame, and release the lock
         with resources.lock:
-            resources.output_frame = frame.copy()
+            resources.output_frame = processed_frame.copy()
+
+def _apply_filter(im):
+    """ Apply all filters to the image in order """
+    resources = SharedResources.get_instance()
+    for fil in resources.get_filters():
+        im = fil.apply(im)
+    return im
 
 
 def encode():

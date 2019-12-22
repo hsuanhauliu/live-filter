@@ -34,7 +34,7 @@ def main():
     @app.route('/filter_control', methods=['POST'])
     def filter_control():
         print("Filter button pressed.")
-        shared.add_filter(request.form["filter_button"])
+        shared.toggle_filter(request.form["filter_button"])
         return render_template("index.html")
 
 
