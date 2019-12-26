@@ -1,14 +1,49 @@
 <html>
   <head>
     <title>Live Filter</title>
+    <link href="{{ url_for('static', filename='styles/mainpage.css')}}" rel="stylesheet"/>
   </head>
+  
   <body>
-    <h1>Live Filter</h1>
-    <img src="{{ url_for('video_feed') }}">
-    
-    <form method="POST" action={{ url_for('filter_control') }}>
-        <input type="submit" name="filter_button" value="blurring">
-        <input type="submit" name="filter_button" value="gray">
-    </form>
+    <div class="container">
+        <div class="title">
+            <h1>Live Filter</h1>
+        </div>
+        
+        <!-- Video feed -->
+        <div class="video_feed">
+          <img src="{{ url_for('video_feed') }}"/>
+        </div>
+        
+        <!-- Show a list of filters applied -->
+        <div class="filter_display">
+            <p>temp</p>
+            <p>temp</p>
+            <p>temp</p>
+            <p>temp</p>
+            <p>temp</p>
+            <p>temp</p>
+            <p>temp</p>
+            <p>temp</p>
+            <p>temp</p>
+            <p>temp</p>
+            <p>temp</p>
+            <p>temp</p>
+            <p>temp</p>
+            <p>temp</p>
+            <p>temp</p>
+        </div>
+        
+        <!-- Prevent float to mess up the layout -->
+        <div class="clear"></div>
+        
+        <!-- Filter control panel -->
+        <div class="filter_control">
+          <form method="POST" action={{ url_for('filter_control') }}>
+            <input type="submit" name="filter_button" value="blurring"/>
+            <input type="submit" name="filter_button" value="gray"/>
+          </form>
+        </div>
+    </div>
   </body>
 </html>

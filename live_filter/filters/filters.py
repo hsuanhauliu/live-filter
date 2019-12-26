@@ -25,5 +25,4 @@ class BlurFilter:
 
     def apply(self, im):
         im = cv.blur(im, (5, 5))
-
         return im

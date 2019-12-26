@@ -26,7 +26,6 @@ class FilterManager:
         
         
     def toggle_filter(self, input_filter):
-        print("toggle pressed")
         if input_filter in self.filter_set:
             self._remove_filter(input_filter)
         else:
@@ -35,17 +34,12 @@ class FilterManager:
 
     def _add_filter(self, input_filter):
         """ Add selected filter """
-        print("adding filter", input_filter)
         self.filter_set.add(input_filter)
         self.filter_list.append(self.filter_dict[input_filter])
-        print(self.filter_list)
-        print(self.filter_set)
 
 
     def _remove_filter(self, input_filter):
         """ Remove target filter """
-        print("removing filter", input_filter)
         self.filter_set.remove(input_filter)
         self.filter_list.remove(self.filter_dict[input_filter])
-        print(self.filter_list)
-        print(self.filter_set)
+        
