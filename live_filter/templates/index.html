@@ -17,21 +17,9 @@
         
         <!-- Show a list of filters applied -->
         <div class="filter_display">
-            <p>temp</p>
-            <p>temp</p>
-            <p>temp</p>
-            <p>temp</p>
-            <p>temp</p>
-            <p>temp</p>
-            <p>temp</p>
-            <p>temp</p>
-            <p>temp</p>
-            <p>temp</p>
-            <p>temp</p>
-            <p>temp</p>
-            <p>temp</p>
-            <p>temp</p>
-            <p>temp</p>
+            {% for fil in data %}
+                <p>{{ fil.name }}</p>
+            {% endfor %}
         </div>
         
         <!-- Prevent float to mess up the layout -->
@@ -42,6 +30,7 @@
           <form method="POST" action={{ url_for('filter_control') }}>
             <input type="submit" name="filter_button" value="blurring"/>
             <input type="submit" name="filter_button" value="gray"/>
+            <input type="submit" name="filter_button" value="flip"/>
           </form>
         </div>
     </div>

@@ -11,6 +11,7 @@ class FilterManager:
     filter_dict = {
         "blurring": BlurFilter(),
         "gray": GrayFilter(),
+        "flip": FlipFilter()
     }
 
 
