@@ -18,11 +18,11 @@ body {
 }
 
 .filter_display {
+    font-size: 20px;
     width: 400px;
     height: 450px;
-    float: left;
+    float: right;
     overflow: scroll;
-    background-color: #c3d7f7;
 }
 
 .clear {
@@ -30,6 +30,7 @@ body {
 }
 
 .filter_control {
-    background-color: #b5cef5;
+    background-color: gray;
+    border-style: solid;
     height: 100px;
 }

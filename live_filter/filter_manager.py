@@ -7,13 +7,12 @@ from live_filter.filters.filters import *
 
 class FilterManager:
     """ Manager class for the filters """
-    #TODO list values as functions for selecting each filter
     filter_dict = {
         "blurring": BlurFilter(),
         "gray": GrayFilter(),
-        "flip": FlipFilter()
+        "flip": FlipFilter(),
+        "window": WindowFilter()
     }
-
 
     def __init__(self):
         self.filter_set = set() # set of filter strings

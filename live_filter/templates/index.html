@@ -18,7 +18,7 @@
         <!-- Show a list of filters applied -->
         <div class="filter_display">
             {% for fil in data %}
-                <p>{{ fil.name }}</p>
+                <li>{{ fil.name }}</li>
             {% endfor %}
         </div>
         
@@ -31,6 +31,7 @@
             <input type="submit" name="filter_button" value="blurring"/>
             <input type="submit" name="filter_button" value="gray"/>
             <input type="submit" name="filter_button" value="flip"/>
+            <input type="submit" name="filter_button" value="window"/>
           </form>
         </div>
     </div>

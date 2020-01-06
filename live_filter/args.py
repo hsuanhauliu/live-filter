@@ -1,3 +1,7 @@
+"""
+    File for managing the input argument handler function.
+"""
+
 import argparse
 
 def parse_input():

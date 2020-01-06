@@ -3,7 +3,6 @@
 """
 
 import cv2 as cv
-import imutils
 
 from shared_resources import SharedResources
 
@@ -15,12 +14,20 @@ def process_frame():
     # loop over frames from the video stream
     while True:
         frame = resources.vid_stream.read()
-        frame = imutils.resize(frame, width=800)
+        frame = _resize(frame)
         processed_frame = _apply_filter(frame)
 
         # acquire the lock, set the output frame, and release the lock
         with resources.lock:
             resources.output_frame = processed_frame.copy()
+
+
+def _resize(im):
+    """ Resize the input image """
+    new_width = 800
+    new_height = int(im.shape[0] * 800 / im.shape[1])
+    return cv.resize(im, (new_width, new_height))
+
 
 def _apply_filter(im):
     """ Apply all filters to the image in order """
