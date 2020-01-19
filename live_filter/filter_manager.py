@@ -2,16 +2,16 @@
     Filter manager.
 """
 
-from live_filter.filters.filters import *
+from live_filter import filters as fil
 
 
 class FilterManager:
     """ Manager class for the filters """
     filter_dict = {
-        "blurring": BlurFilter(),
-        "gray": GrayFilter(),
-        "flip": FlipFilter(),
-        "window": WindowFilter()
+        "blurring": fil.BlurFilter(),
+        "gray": fil.GrayFilter(),
+        "flip": fil.FlipFilter(),
+        "window": fil.WindowFilter()
     }
 
     def __init__(self):
