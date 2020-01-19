@@ -49,6 +49,7 @@ To implement your own custom filters, follow the steps below.
 from live_filter.filters.filter import Filter
 
 class NewFilter(Filter):
+    filter_name = "New Filter"  # give your custom filter a name for display
     
     def apply(self, im):
         # your implementation

@@ -1,6 +1,7 @@
 # Custom
-/test
-/temp
+test/
+temp/
+models/
 .pylintrc
 .DS_Store
 
