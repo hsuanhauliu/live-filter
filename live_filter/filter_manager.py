@@ -12,7 +12,6 @@ class FilterManager:
         "gray": fil.GrayFilter(),
         "flip": fil.FlipFilter(),
         "window": fil.WindowFilter(),
-        "eye patch": fil.EyePatchFilter()
     }
 
     def __init__(self):
