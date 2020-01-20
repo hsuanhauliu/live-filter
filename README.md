@@ -14,6 +14,8 @@ See [here](requirements.txt) for a complete list of required packages.
 - OpenCV >= 4.1.1.26
 - Numpy >= 1.17.3
 
+Also, download the shape_predictor_68_face_landmarks.dat from [here](https://github.com/davisking/dlib-models). Place the file in live_filter/filters/models/dlib folder.
+
 ### Installation
 
 A step by step series of examples that tell you how to get a development env running.
