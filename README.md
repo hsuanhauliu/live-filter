@@ -13,6 +13,9 @@ See [here](requirements.txt) for a complete list of required packages.
 - Flask >= 1.1.1
 - OpenCV >= 4.1.1.26
 - Numpy >= 1.17.3
+- dlib >= 19.19.0
+
+Download the face landmarks prediction model [here](https://github.com/davisking/dlib-models/blob/master/shape_predictor_68_face_landmarks.dat.bz2) for some filters to function normally. Place the decompressed file in "live_filter/filters/models/dlib/" folder.
 
 ### Installation
 

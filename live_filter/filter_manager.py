@@ -12,22 +12,21 @@ class FilterManager:
         "gray": fil.GrayFilter(),
         "flip": fil.FlipFilter(),
         "window": fil.WindowFilter(),
+        "eye patch": fil.EyePatchFilter()
     }
 
     def __init__(self):
         self.filter_set = set() # set of filter strings
         self.filter_list = []   # ordered filter objects
-        self._check_filters()
 
 
     @property
     def filters(self):
         """ List of Filter Objects """
         return self.filter_list
-
-
+        
+        
     def toggle_filter(self, input_filter):
-        """ Toggle input filter on and off """
         if input_filter in self.filter_set:
             self._remove_filter(input_filter)
         else:
@@ -44,9 +43,4 @@ class FilterManager:
         """ Remove target filter """
         self.filter_set.remove(input_filter)
         self.filter_list.remove(self.filter_dict[input_filter])
-
-
-    def _check_filters(self):
-        for f in self.filter_dict.values():
-            if not isinstance(f, fil.Filter):
-                raise TypeError("Object not inherited from Filter class")
+        
