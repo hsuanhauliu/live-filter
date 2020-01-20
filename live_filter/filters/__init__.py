@@ -1,3 +1,4 @@
+from live_filter.filters.filter import Filter
 from live_filter.filters.blur_filter import BlurFilter
 from live_filter.filters.gray_filter import GrayFilter
 from live_filter.filters.flip_filter import FlipFilter
